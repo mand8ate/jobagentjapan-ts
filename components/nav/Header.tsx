@@ -5,6 +5,7 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 
 import { headerLinks } from "@/constants";
 import CustomButton from "@/components/buttons/CustomButton";
+import ProfileMenu from "../profile/ProfileMenu";
 
 export default async function Header() {
   const supabase = createServerComponentClient({ cookies });
@@ -55,6 +56,7 @@ export default async function Header() {
             />
           ) : (
             <div className=" flex gap-4 overflow-hidden">
+              <ProfileMenu />
               <CustomButton
                 title="signin"
                 url="signin"

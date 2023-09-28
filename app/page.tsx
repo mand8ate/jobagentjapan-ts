@@ -1,4 +1,4 @@
-import HeroLanding from "@/components/heroes/Hero";
+import HeroLanding from "@/components/heroes/HeroLanding";
 import FeatureContainer from "@/components/landing/FeatureContainer";
 import PositionContainer from "@/components/positions/PositionsContainer";
 import PositionSearchForm from "@/components/forms/PositionSearchForm";

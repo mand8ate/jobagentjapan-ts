@@ -1,4 +1,4 @@
-import SearchFormContainer from "@/components/forms/SearchFormContainer";
+import PositionSearchForm from "@/components/forms/PositionSearchForm";
 import JobPositionsContainer from "@/components/positions/JobPositionContainer";
 
 export default async function Positions() {
@@ -12,7 +12,7 @@ export default async function Positions() {
           <b className="relative">Find the perfect fit for your lifestyle</b>
         </div>
       </header>
-      <SearchFormContainer />
+      <PositionSearchForm />
       <JobPositionsContainer />
     </div>
   );
