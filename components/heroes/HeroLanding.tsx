@@ -1,6 +1,6 @@
 import CustomButton from "@/components/buttons/CustomButton";
 
-const Hero = () => {
+export default async function HeroLanding  () {
   return (
     <header className="w-full h-screen flex flex-col items-center sm:items-start justify-start text-left text-4xl md:text-7xl lg:text-9xl text-black font-inter">
       <h1 className="font-bold text-6xl md:text-8xl lg:text-9xl mb-6 md:mb-8">
@@ -26,5 +26,3 @@ const Hero = () => {
     </header>
   );
 };
-
-export default Hero;
