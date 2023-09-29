@@ -6,20 +6,14 @@ import { Fragment, useState } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import AuthButtonClient from "../buttons/AuthButtonClient";
 
-const links = [
-  { href: "/account-settings", label: "Account settings" },
-  { href: "/support", label: "Support" },
-  { href: "/license", label: "License" },
-  { href: "/sign-out", label: "Sign out" },
-];
-
 export default function ProfileMenu() {
   const [openModal, setOpenModal] = useState(false);
 
   return (
+    <div className="relative">
     <Menu
       as="a"
-      className="flex justify-center items-center rounded-[30px] border"
+      className="flex justify-center items-center rounded-[30px] px-4 py-2 border"
     >
       <Menu.Button onMouseEnter={() => setOpenModal(true)} className="">
         signin
@@ -37,7 +31,7 @@ export default function ProfileMenu() {
         <Menu.Items
           static
           onMouseLeave={() => setOpenModal(false)}
-          className="absolute"
+          className="absolute left-0 mt-2 w-[200px] h-[60px] w-[200px] border"
         >
           <Menu.Item>
             {({ active }) => (
@@ -60,18 +54,11 @@ export default function ProfileMenu() {
             )}
           </Menu.Item>
           <Menu.Item>
-            {({ active }) => (
-              <div className="rounded-full p-2 violetGradient-bg">
-                <AuthButtonClient
-                  title="Login"
-                  customClasses="flex"
-                  url="const"
-                />
-              </div>
-            )}
+                <AuthButtonClient />
           </Menu.Item>
         </Menu.Items>
       </Transition>
     </Menu>
+    </div>
   );
 }

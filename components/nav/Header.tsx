@@ -5,7 +5,8 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 
 import { headerLinks } from "@/constants";
 import CustomButton from "@/components/buttons/CustomButton";
-import ProfileMenu from "../profile/ProfileMenu";
+import ProfileMenu from "../auth/SigninDropdown";
+import AuthButtonClient from "../buttons/AuthButtonClient";
 
 export default async function Header() {
   const supabase = createServerComponentClient({ cookies });
@@ -48,20 +49,16 @@ export default async function Header() {
         <div className="flex items-center justify-center gap-5 mr-2 md:mr-4">
           {session ? (
             <Image
-              className="overflow-hidden shrink-0 cursor-pointer"
+              className="shrink-0 cursor-pointer"
               alt=""
               src="/account-circle.svg"
               width={40}
               height={40}
             />
           ) : (
-            <div className=" flex gap-4 overflow-hidden">
+            <div className=" flex gap-4">
               <ProfileMenu />
-              <CustomButton
-                title="signin"
-                url="signin"
-                customClasses="py-2 px-4 text-white text-md bg-blueviolet-200"
-              />
+              <AuthButtonClient />
               <CustomButton
                 title="signup"
                 url="auth/signup"

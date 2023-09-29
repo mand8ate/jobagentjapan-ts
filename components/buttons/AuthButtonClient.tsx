@@ -2,18 +2,16 @@
 
 import Link from "next/link";
 
-import type { CustomButtonProps } from "@/lib/common.types";
-
-const CustomButton = ({ customClasses, title, url }: CustomButtonProps) => {
+const AuthButtonClient = () => {
   return (
-    <Link href={`/${url}`} className="no-underline hover:underline">
+    <Link href={`/`} className="no-underline hover:underline">
       <button
-        className={`rounded-[30px] ${customClasses} text-decoration:none flex items-center justify-center cursor-pointer`}
+        className="rounded-[30px] py-2 px-4 text-white text-md bg-blueviolet-200 text-decoration:none flex items-center justify-center cursor-pointer"
       >
-        {title}
+        Signin
       </button>
     </Link>
   );
 };
 
-export default CustomButton;
+export default AuthButtonClient;
