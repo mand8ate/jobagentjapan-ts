@@ -5,8 +5,9 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 
 import { headerLinks } from "@/constants";
 import CustomButton from "@/components/buttons/CustomButton";
-import ProfileMenu from "../auth/SigninDropdown";
-import AuthButtonClient from "../buttons/AuthButtonClient";
+import SigninDropdown from "../auth/SigninDropdown";
+import AuthButtonClient from "../buttons/SigninButtonClient";
+import ProfileDropdown from "../profile/ProfileDropdown";
 
 export default async function Header() {
   const supabase = createServerComponentClient({ cookies });
@@ -48,16 +49,10 @@ export default async function Header() {
 
         <div className="flex items-center justify-center gap-5 mr-2 md:mr-4">
           {session ? (
-            <Image
-              className="shrink-0 cursor-pointer"
-              alt=""
-              src="/account-circle.svg"
-              width={40}
-              height={40}
-            />
+            <ProfileDropdown />
           ) : (
             <div className=" flex gap-4">
-              <ProfileMenu />
+              <SigninDropdown />
               <AuthButtonClient />
               <CustomButton
                 title="signup"
