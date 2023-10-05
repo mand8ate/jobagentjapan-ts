@@ -1,10 +1,9 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
 import { Fragment, useState } from "react";
 import { Menu, Transition } from "@headlessui/react";
-import AuthButtonClient from "../buttons/SigninButtonClient";
+import SigninButtonClient from "@/components/buttons/SigninButtonClient";
+import LoginFormEmail from "@/components/forms/LoginFormEmail";
 
 export default function SigninDropdown() {
   const [openModal, setOpenModal] = useState(false);
@@ -12,11 +11,11 @@ export default function SigninDropdown() {
   return (
     <div className="relative">
       <Menu
-        as="a"
-        className="flex justify-center items-center rounded-[30px] px-4 py-2 border"
+        as="div"
+        className="flex justify-center items-center rounded-[30px] px-4 py-2 violetGradient-bg text-white"
       >
-        <Menu.Button onMouseEnter={() => setOpenModal(true)} className="">
-          signin
+        <Menu.Button onMouseEnter={() => setOpenModal(true)}>
+          Signin
         </Menu.Button>
         <Transition
           show={openModal}
@@ -31,30 +30,14 @@ export default function SigninDropdown() {
           <Menu.Items
             static
             onMouseLeave={() => setOpenModal(false)}
-            className="absolute left-0 mt-2 w-[200px] h-[60px] w-[200px] border"
+            className="absolute flex flex-col gap-2 right-0 top-9 mt-2 rounded-xl w-[200px] bg-white p-6 text-black"
           >
             <Menu.Item>
-              {({ active }) => (
-                <a
-                  className={`${active && "bg-blue-500"}`}
-                  href="/account-settings"
-                >
-                  Account settings
-                </a>
-              )}
+              <LoginFormEmail />
             </Menu.Item>
+            <hr />
             <Menu.Item>
-              {({ active }) => (
-                <a
-                  className={`${active && "bg-blue-500"}`}
-                  href="/account-settings"
-                >
-                  Documentation
-                </a>
-              )}
-            </Menu.Item>
-            <Menu.Item>
-              <AuthButtonClient />
+              <SigninButtonClient />
             </Menu.Item>
           </Menu.Items>
         </Transition>

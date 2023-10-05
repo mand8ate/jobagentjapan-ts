@@ -9,7 +9,7 @@ export default function SignoutButtonClient() {
   const supabase = createClientComponentClient<Database>();
 
   const handleSignout = async () => {
-    const response = await fetch(`${location.origin}/auth/signout`, {
+    const response = await fetch(`${location.origin}/api/auth/signout`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

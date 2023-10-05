@@ -10,7 +10,7 @@ export default function SigninButtonClient() {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: "github",
       options: {
-        redirectTo: `${location.origin}/auth/callback`,
+        redirectTo: `${location.origin}/api/auth/signin`,
       },
     });
     if (error) {
@@ -21,7 +21,7 @@ export default function SigninButtonClient() {
   return (
     <button
       onClick={handleSignIn}
-      className="rounded-[30px] py-2 px-4 text-white text-md bg-blueviolet-200 text-decoration:none flex items-center justify-center cursor-pointer hover:underline"
+      className="rounded-[30px] py-2 px-4 text-white text-md violetGradient-bg text-decoration:none flex items-center justify-center cursor-pointer hover:underline"
     >
       Signin
     </button>

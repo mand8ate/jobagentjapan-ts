@@ -30,6 +30,9 @@ const config: Config = {
         palevioletred: {
           100: "#c06474",
           200: "#b86271",
+          300: "#af606e",
+          400: "#a65e6b",
+          500: "#9d5c68",
         },
         silver: {
           100: "#c8c8c8",

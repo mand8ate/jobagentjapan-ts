@@ -38,7 +38,7 @@ export default async function Header() {
 
           {headerLinks.map((link) => (
             <Link
-              className="cursor-pointer [text-decoration:none] relative uppercase text-[inherit] hidden xl:block"
+              className="cursor-pointer [text-decoration:none] relative uppercase text-[inherit] hidden lg:block"
               href={link.url}
               key={link.title}
             >
@@ -53,11 +53,10 @@ export default async function Header() {
           ) : (
             <div className=" flex gap-4">
               <SigninDropdown />
-              <AuthButtonClient />
               <CustomButton
-                title="signup"
+                title="Signup"
                 url="auth/signup"
-                customClasses="py-2 px-4 text-white text-md bg-blueviolet-100"
+                customClasses="py-2 px-4 text-white text-md blueGradient-bg"
               />
             </div>
           )}
@@ -67,7 +66,7 @@ export default async function Header() {
             alt="hamburger menu"
             width={30}
             height={30}
-            className="block md:hidden cursor-pointer"
+            className="block lg:hidden cursor-pointer"
           />
         </div>
       </div>

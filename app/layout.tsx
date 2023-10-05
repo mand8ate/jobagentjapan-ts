@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     "Revolutionize your job search experience in Japan with our AI-powered job platform. Say goodbye to repetitive resume uploads. Simply sign up using your LinkedIn profile and apply to your dream job with a single click. Get instant feedback on your compatibility with the position, and if you're a great match, one of our agents will reach out to you promptly.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
