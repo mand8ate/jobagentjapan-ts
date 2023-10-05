@@ -1,6 +1,6 @@
 import HeroLanding from "@/components/heroes/HeroLanding";
 import FeatureContainer from "@/components/landing/FeatureContainer";
-import PositionContainer from "@/components/positions/PositionsContainer";
+import PositionsContainer from "@/components/positions/PositionsContainer";
 import PositionSearchForm from "@/components/forms/PositionSearchForm";
 
 export default async function Home() {
@@ -8,7 +8,7 @@ export default async function Home() {
     <main className="flex flex-col items-center justify-between p-24">
       <HeroLanding />
       <FeatureContainer />
-      <PositionContainer />
+      <PositionsContainer />
       <PositionSearchForm />
     </main>
   );

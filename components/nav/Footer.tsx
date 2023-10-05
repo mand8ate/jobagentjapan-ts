@@ -52,13 +52,13 @@ const Footer = () => {
           <div className="space-x-4 mt-4 md:mt-0">
             <Link
               className="cursor-pointer [text-decoration:none] font-medium"
-              href="/privacy-policy"
+              href="/legal/privacy-policy"
             >
               Privacy Policy
             </Link>
             <Link
               className="cursor-pointer [text-decoration:none] font-medium"
-              href="/terms-of-use"
+              href="/legal/terms-of-use"
             >
               Terms of Use
             </Link>

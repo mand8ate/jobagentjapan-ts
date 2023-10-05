@@ -4,6 +4,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Footer from "@/components/nav/Footer";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -20,8 +23,9 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <ToastContainer />
         <Header />
-        <div className="pt-[80px] md:pt-[100px]">{children}</div>
+        <div className="pt-[80px] md:pt-[100px] px-10">{children}</div>
         <Footer />
       </body>
     </html>

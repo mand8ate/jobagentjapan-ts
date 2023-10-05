@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Fragment, useState } from "react";
 import { Menu, Transition } from "@headlessui/react";
-import SignoutButtonClient from "@/components/buttons/SignouButtonClient";
+import SignoutButtonClient from "@/components/buttons/SignoutButtonClient";
 
 export default function ProfileDropdown() {
   const [openModal, setOpenModal] = useState(false);

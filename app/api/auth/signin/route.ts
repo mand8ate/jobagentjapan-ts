@@ -1,8 +1,7 @@
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-import type { NextRequest } from "next/server";
 import type { Database } from "@/lib/database.types";
 
 export const dynamic = "force-dynamic";
@@ -20,18 +19,43 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: Request) {
-  const requestUrl = new URL(request.url);
-  const formData = await request.formData();
-  const email = String(formData.get("email"));
-  const password = String(formData.get("password"));
-  const supabase = createRouteHandlerClient<Database>({ cookies });
+  try {
+    const requestUrl = new URL(request.url);
+    const formData = await request.formData();
+    const email = String(formData.get("email"));
+    const password = String(formData.get("password"));
 
-  await supabase.auth.signInWithPassword({
-    email,
-    password,
-  });
+    if (!email || !password) {
+      return NextResponse.json(
+        { error: "Missing Email or Password" },
+        {
+          status: 400,
+        }
+      );
+    }
 
-  return NextResponse.redirect(requestUrl.origin, {
-    status: 301,
-  });
+    const supabase = createRouteHandlerClient<Database>({ cookies });
+
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+
+    if (error) {
+      return NextResponse.json(
+        { error: "Email and Password don't match" },
+        { status: 400 }
+      );
+    }
+
+    return NextResponse.redirect(requestUrl.origin, {
+      status: 301,
+    });
+  } catch (e) {
+    console.log(e);
+    return NextResponse.json(
+      { error: "Something went wrong" },
+      { status: 500 }
+    );
+  }
 }

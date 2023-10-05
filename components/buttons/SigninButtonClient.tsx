@@ -1,5 +1,7 @@
 "use client";
 
+import { toast } from "react-toastify";
+
 import { Database } from "@/lib/database.types";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
@@ -13,8 +15,9 @@ export default function SigninButtonClient() {
         redirectTo: `${location.origin}/api/auth/signin`,
       },
     });
+
     if (error) {
-      console.log(error);
+      toast.error("Something went wrong");
     }
   };
 

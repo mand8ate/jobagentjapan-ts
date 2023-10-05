@@ -1,3 +1,9 @@
+import {
+  AcademicCapIcon,
+  CheckBadgeIcon,
+  LightBulbIcon,
+} from "@heroicons/react/20/solid";
+
 export const footerLinks = [
   {
     title: "Navigation",
@@ -29,4 +35,27 @@ export const headerLinks = [
   { title: "Blog", url: "https://lifenippon.com" },
   { title: "Contact", url: "/contact" },
   { title: "About", url: "/about" },
+];
+
+export const features = [
+  {
+    title: "Easy Signup",
+    description: `Sign up with us is a breeze! No CV required upfront – just link your LinkedIn profile, and
+                  you're good to go! Join us today and unlock a world of opportunities.`,
+    icon: AcademicCapIcon,
+  },
+  {
+    title: "Easy Application",
+    description: `Discover your dream job and sign up with just one click! Simplify
+                  your application process and unlock endless career opportunities.
+                  Your next job is just a click away!`,
+    icon: CheckBadgeIcon,
+  },
+  {
+    title: "AI-Powered Scoring",
+    description: `We utilize AI algorithms to score applications for position-fit. 
+                  This technology-driven approach ensures effortless matching to perfect roles, 
+                  enhancing the probability of hiring success.`,
+    icon: LightBulbIcon,
+  },
 ];
