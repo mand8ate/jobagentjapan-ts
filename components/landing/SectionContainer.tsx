@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import SectionTitle from "@/components/landing/SectionTitle";
 import { SectionProps } from "@/lib/common.types";
 

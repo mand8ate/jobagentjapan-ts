@@ -1,4 +1,4 @@
-export default async function ProfileCardContainer () {
+export default async function ProfileContainer () {
     return (
         <div className="self-stretch flex flex-col pt-[200px] px-0 pb-[50px] items-center justify-center">
           <div className="self-stretch overflow-hidden flex flex-col py-2.5 px-[150px] items-center justify-start gap-[10px] md:pl-[50px] md:pr-[50px] md:box-border sm:pl-2.5 sm:pr-2.5 sm:box-border">

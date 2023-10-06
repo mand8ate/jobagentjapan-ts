@@ -1,5 +1,4 @@
 import { features } from "@/constants";
-import SectionTitle from "@/components/landing/SectionTitle";
 import FeatureCard from "@/components/landing/FeatureCard";
 import SectionContainer from "./SectionContainer";
 
