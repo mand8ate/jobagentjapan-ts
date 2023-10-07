@@ -8,7 +8,7 @@ export interface CustomButtonProps {
 
 export interface SectionTitleProps {
   children: ReactNode;
-  color: string;
+  color?: string;
 }
 
 export interface FeatureCardProps {
@@ -16,6 +16,25 @@ export interface FeatureCardProps {
     title: string;
     description: string;
     icon: React.ComponentType<{ className?: string }>;
+  };
+}
+
+export enum WorkStyle {
+  OFFICE = "In-Office",
+  REMOTE = "Remote",
+  HYBRID = "Hybrid",
+}
+
+export interface PositionCardProps {
+  position: {
+    id: number;
+    title: string;
+    category: string;
+    company: string;
+    salary: number;
+    location: string;
+    style: WorkStyle;
+    agent: string;
   };
 }
 

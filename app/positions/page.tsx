@@ -1,5 +1,5 @@
 import PositionSearchForm from "@/components/forms/PositionSearchForm";
-import JobPositionsContainer from "@/components/positions/JobPositionContainer";
+import JobPositionContainer from "@/components/positions/JobPositionContainer";
 
 export default async function Positions() {
   return (
@@ -13,7 +13,7 @@ export default async function Positions() {
         </div>
       </header>
       <PositionSearchForm />
-      <JobPositionsContainer />
+      <JobPositionContainer />
     </div>
   );
 }

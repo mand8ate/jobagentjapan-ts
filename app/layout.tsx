@@ -25,7 +25,7 @@ export default async function RootLayout({
       <body className={inter.className}>
         <ToastContainer />
         <Header />
-        <div className="pt-[80px] md:pt-[100px] px-10">{children}</div>
+        <div className="pt-[80px] md:pt-[100px]">{children}</div>
         <Footer />
       </body>
     </html>

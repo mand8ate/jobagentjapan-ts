@@ -1,4 +1,4 @@
-import PositionContainer from "./PositionsContainer";
+import PositionContainer from "./PositionContainer";
 
 export default async function JobPositionsContainer() {
   return (

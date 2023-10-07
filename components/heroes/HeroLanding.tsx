@@ -1,8 +1,8 @@
 import CustomButton from "@/components/buttons/CustomButton";
 
-export default async function HeroLanding  () {
+export default async function HeroLanding() {
   return (
-    <header className="w-full h-screen flex flex-col items-center sm:items-start justify-start text-left text-4xl md:text-7xl lg:text-9xl text-black font-inter">
+    <header className="w-full h-[40vh] flex flex-col items-center sm:items-start justify-start text-left text-4xl md:text-7xl lg:text-9xl text-black font-inter px-24 ">
       <h1 className="font-bold text-6xl md:text-8xl lg:text-9xl mb-6 md:mb-8">
         Job <span className="blueGradient-text">Agent</span> Japan
       </h1>
@@ -25,4 +25,4 @@ export default async function HeroLanding  () {
       />
     </header>
   );
-};
+}

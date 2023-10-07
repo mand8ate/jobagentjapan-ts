@@ -7,9 +7,11 @@ export default async function SectionContainer({
   children,
 }: SectionProps) {
   return (
-    <div className="flex flex-col items-center py-20 px-6 gap-12">
-      <SectionTitle color={color || ""}>{title}</SectionTitle>
-      <div className="flex flex-wrap justify-center gap-6">{children}</div>
+    <div>
+      <div className="flex flex-col items-center py-20 px-6 gap-12">
+        <SectionTitle color={color || ""}>{title}</SectionTitle>
+        <div className="flex flex-wrap justify-center gap-6">{children}</div>
+      </div>
     </div>
   );
 }
