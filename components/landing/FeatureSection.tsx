@@ -4,7 +4,11 @@ import SectionContainer from "./SectionContainer";
 
 export default async function FeatureContainer() {
   return (
-    <SectionContainer title="What makes us special?" color="violetGradient-bg">
+    <SectionContainer
+      title="What makes us special?"
+      color="violetGradient-bg"
+      key="feature"
+    >
       {features.map((feature, index) => (
         <FeatureCard key={index} feature={feature} />
       ))}

@@ -2,6 +2,7 @@ import Image from "next/image";
 import { PositionCardProps } from "@/lib/common.types";
 
 import { WorkStyle } from "@/lib/common.types";
+import { categories } from "@/constants";
 
 import {
   MapPinIcon,
@@ -13,23 +14,20 @@ import {
 export default function PositionsCard({
   position: { id, title, category, company, salary, location, style, agent },
 }: PositionCardProps) {
-  const imagePath =
-    category === "Information Technology"
-      ? "/categoryimage@2x.png"
-      : "/hero3@3x.png";
+  type categoryKey = "Information Technology" | "Hospitality";
 
-  const color =
-    category === "Information Technology"
-      ? "blueviolet-100"
-      : "mediumturquoise";
+  const { imagePath, border } = categories[category as categoryKey] || {
+    imagePath: "/default.png",
+    border: "border-indianred",
+  };
 
   return (
     <div
       key={id}
-      className="rounded-3xl bg-white shadow-md w-[380px] flex flex-col p-8 gap-4 border border-gainsboro-100"
+      className={`rounded-3xl bg-white shadow-md w-[380px] flex flex-col p-8 gap-4 border-2 violetGradient-border`}
     >
       <Image
-        className={`rounded-3xl ring-2 ring-${color}`}
+        className={`rounded-3xl border-2 ${border}`}
         height={200}
         width={320}
         alt={category}

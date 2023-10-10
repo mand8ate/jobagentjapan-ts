@@ -41,7 +41,11 @@ const positions = [
 
 export default async function PositionSection() {
   return (
-    <SectionContainer title="Top Positions" color="blueGradient-bg">
+    <SectionContainer
+      title="Top Positions"
+      color="blueGradient-bg"
+      key="position"
+    >
       {positions.map((position) => (
         <PositionCard position={position} />
       ))}

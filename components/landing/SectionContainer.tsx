@@ -9,7 +9,7 @@ export default async function SectionContainer({
   return (
     <div>
       <div className="flex flex-col items-center py-20 px-6 gap-12">
-        <SectionTitle color={color || ""}>{title}</SectionTitle>
+        <SectionTitle color={color || "bg-gray-700"}>{title}</SectionTitle>
         <div className="flex flex-wrap justify-center gap-6">{children}</div>
       </div>
     </div>

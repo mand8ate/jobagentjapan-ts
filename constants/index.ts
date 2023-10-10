@@ -59,3 +59,14 @@ export const features = [
     icon: LightBulbIcon,
   },
 ];
+
+export const categories = {
+  "Information Technology": {
+    imagePath: "/categoryimage@2x.png",
+    border: "violetGradient-border",
+  },
+  Hospitality: {
+    imagePath: "/hero3@3x.png",
+    border: "mediumturquoise",
+  },
+};

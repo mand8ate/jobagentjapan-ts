@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .navbar {
+    @apply fixed z-10 w-full bg-aqua [backdrop-filter:blur(10px)] flex flex-row items-center h-[80px] md:h-[100px];
+  }
+
+  .violetGradient-bg {
+    background: linear-gradient(270deg, #ae46ff 16.07%, #0879fe);
+  }
+
+  .blueGradient-bg {
+    background-image: linear-gradient(
+      90deg,
+      rgba(0, 104, 255, 1) 0%,
+      rgba(5, 237, 227, 1) 67%
+    );
+  }
+
+  .blueGradient-text {
+    background-image: linear-gradient(
+      90deg,
+      rgba(0, 104, 255, 1) 0%,
+      rgba(5, 237, 227, 1) 67%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .violetGradient-text {
+    background-image: linear-gradient(270deg, #ae46ff 16.07%, #0879fe);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .violetGradient-border {
+    background: 
+        /* Inner background - color of your content area (e.g., white) */ linear-gradient(
+          white,
+          white
+        )
+        padding-box,
+      /* Outer gradient border */
+        linear-gradient(270deg, #ae46ff 16.07%, #0879fe) border-box;
+    border: solid transparent; /* Size of your border */
+  }
+
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply leading-[normal] m-0;
+    @apply box-border;
+    @apply font-inter;
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .font-inter {
+    font-family: "Inter", sans-serif;
+  }
+}
