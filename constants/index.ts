@@ -66,7 +66,14 @@ export const categories = {
     border: "violetGradient-border",
   },
   Hospitality: {
-    imagePath: "/hero3@3x.png",
-    border: "mediumturquoise",
+    imagePath: "/categoryimage@2x.png",
+    border: "blueGradient-border",
+  },
+};
+
+export const agents = {
+  Malte: {
+    name: "Malte",
+    profileImage: "/image1@2x.jpg",
   },
 };

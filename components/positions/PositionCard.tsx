@@ -3,6 +3,7 @@ import { PositionCardProps } from "@/lib/common.types";
 
 import { WorkStyle } from "@/lib/common.types";
 import { categories } from "@/constants";
+import { agents } from "@/constants";
 
 import {
   MapPinIcon,
@@ -15,31 +16,33 @@ export default function PositionsCard({
   position: { id, title, category, company, salary, location, style, agent },
 }: PositionCardProps) {
   type categoryKey = "Information Technology" | "Hospitality";
+  type agentKey = "Malte";
 
   const { imagePath, border } = categories[category as categoryKey] || {
-    imagePath: "/default.png",
+    imagePath: "/categoryimage@2x.png",
     border: "border-indianred",
   };
+
+  const { name, profileImage } = agents[agent as agentKey] || "";
 
   return (
     <div
       key={id}
-      className={`rounded-3xl bg-white shadow-md w-[380px] flex flex-col p-8 gap-4 border-2 violetGradient-border`}
+      className={`rounded-3xl bg-white shadow-md sm:w-[340px] md:w-[380px] flex flex-col p-8 gap-4 border-2 ${border}`}
     >
-      <Image
-        className={`rounded-3xl border-2 ${border}`}
-        height={200}
-        width={320}
-        alt={category}
-        src={imagePath}
-      />
-
-      <h4 className="p-2.5 text-lg font-semibold">{title}</h4>
-      <p className="p-2.5 text-darkslategray-100 text-lg">{company}</p>
-      <p className="p-2.5 text-mediumslateblue text-lg font-semibold">
+      <div
+        className={`rounded-3xl border-2 ${border} relative w-[300px] h-[200px]`}
+      >
+        <Image alt={`${category} image`} src={imagePath} fill />
+      </div>
+      <h4 className="py-1.5 md:py-2.5 text-lg font-semibold">{title}</h4>
+      <p className="py-1.5 md:py-2.5 text-darkslategray-100 text-lg">
+        {company}
+      </p>
+      <p className="py-1.5 md:py-2.5 text-mediumslateblue text-lg font-semibold">
         ¥ {salary} Million/year
       </p>
-      <div className="flex flex-row p-2.5 justify-around text-lg text-gray-200">
+      <div className="flex flex-row py-1.5 md:py-2.5 justify-around text-lg text-gray-200">
         <div className="flex gap-3 items-center">
           <MapPinIcon className="w-4 h-4" />
           <span className="font-medium">{location}</span>
@@ -57,13 +60,13 @@ export default function PositionsCard({
           <span className="font-medium">{style}</span>
         </div>
       </div>
-      <div className="flex flex-row p-2.5 items-center gap-[10px] text-base">
-        <div className="rounded-31xl bg-white w-[30px] h-[30px] overflow-hidden">
-          <img className="object-cover" alt="Agent" src={"agentImg"} />
+      <div className="flex flex-row py-1.5 md:py-2.5 items-center gap-[10px] text-base">
+        <div className="rounded-full bg-white w-[40px] h-[40px] overflow-hidden relative">
+          <Image src={profileImage} alt="agent profile" fill />
         </div>
-        <span className="text-lg font-bold">{agent}</span>
+        <span className="text-lg font-bold">{name}</span>
       </div>
-      <button className="rounded-full bg-crimson-200 py-4 font-bold mt-auto tracking-widest text-white uppercase">
+      <button className="rounded-full bg-crimson-200 py-2 md:py-4 font-bold mt-auto tracking-widest text-white uppercase">
         Details
       </button>
     </div>

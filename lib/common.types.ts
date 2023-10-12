@@ -6,6 +6,13 @@ export interface CustomButtonProps {
   url: string;
 }
 
+export interface SectionProps {
+  title: string;
+  color?: string;
+  background?: string;
+  children: ReactNode;
+}
+
 export interface SectionTitleProps {
   children: ReactNode;
   color?: string;
@@ -36,10 +43,4 @@ export interface PositionCardProps {
     style: WorkStyle;
     agent: string;
   };
-}
-
-export interface SectionProps {
-  title: string;
-  color?: string;
-  children: ReactNode;
 }

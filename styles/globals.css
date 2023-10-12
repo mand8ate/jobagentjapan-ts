@@ -40,14 +40,25 @@
 
   .violetGradient-border {
     background: 
-        /* Inner background - color of your content area (e.g., white) */ linear-gradient(
-          white,
-          white
-        )
+        /* Inner background */ linear-gradient(white, white)
         padding-box,
       /* Outer gradient border */
         linear-gradient(270deg, #ae46ff 16.07%, #0879fe) border-box;
-    border: solid transparent; /* Size of your border */
+    border: solid transparent;
+  }
+
+  .blueGradient-border {
+    background: 
+        /* Inner background */ linear-gradient(white, white)
+        padding-box,
+      /* Outer gradient border */
+        linear-gradient(
+          90deg,
+          rgba(0, 104, 255, 1) 0%,
+          rgba(5, 237, 227, 1) 67%
+        )
+        border-box;
+    border: solid transparent;
   }
 
   :root {
@@ -60,8 +71,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
 
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 233 99% 65%;
+    --primary-foreground: 233 99% 100%;
 
     --secondary: 0 0% 96.1%;
     --secondary-foreground: 0 0% 9%;
@@ -77,7 +88,7 @@
 
     --border: 0 0% 89.8%;
     --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
+    --ring: 352 97.8% 70.8%;
 
     --radius: 0.5rem;
   }

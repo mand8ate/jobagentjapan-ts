@@ -1,48 +1,196 @@
-export default async function SearchFormContainer() {
+"use client";
+
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Slider } from "@/components/ui/slider";
+import { Input } from "@/components/ui/input";
+import { useForm } from "react-hook-form";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+
+const formSchema = z.object({
+  job: z.string().optional(),
+  sector: z.string().optional(),
+  position: z.string().optional(),
+  salary: z.number().optional(),
+  style: z.string().optional(),
+});
+
+const sectors = [
+  "Information Technology",
+  "Marketing",
+  "Hospitality",
+  "Gastronomy",
+];
+
+const positions = ["Junior", "Mid-Level", "Senior"];
+
+const workStyles = ["In-Office", "Remote", "Hybrid"];
+
+export default function SearchFormContainer() {
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      job: "",
+      sector: "",
+      position: "",
+      salary: undefined,
+      style: "",
+    },
+  });
+
+  const onSubmit = (values: z.infer<typeof formSchema>) => {
+    const transformedValues = {
+      ...values,
+      job: values.job?.toLocaleLowerCase().replace(/ /g, "-"),
+      sector: values.sector?.toLocaleLowerCase().replace(/ /g, "-"),
+      position: values.position?.toLocaleLowerCase().replace(/ /g, "-"),
+      salary: values.salary,
+      style: values.style?.toLowerCase().replace(/ /g, "-"),
+    };
+
+    console.log(transformedValues);
+  };
+
   return (
-    <div className="bg-white flex flex-col items-center py-16 md:py-32 px-4 md:px-10 text-center text-4xl text-white font-inter">
-      <h2 className="text-5xl font-bold mb-8">Search Listings</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div className="bg-white rounded-xl border border-palevioletred-200 p-4">
-          <label className="text-xl font-bold">Job</label>
-          <input
-            type="text"
-            className="w-full py-2 px-4 text-lg rounded-md"
-            placeholder="Software Engineer"
-          />
-        </div>
-        <div className="bg-white rounded-xl border border-palevioletred-200 p-4">
-          <label className="text-xl font-bold">Sector</label>
-          <input
-            type="text"
-            className="w-full py-2 px-4 text-lg rounded-md"
-            placeholder="IT"
-          />
-        </div>
-        <div className="bg-white rounded-xl border border-palevioletred-200 p-4">
-          <label className="text-xl font-bold">Position</label>
-          <input
-            type="text"
-            className="w-full py-2 px-4 text-lg rounded-md"
-            placeholder="Team Lead"
-          />
-        </div>
-        <div className="bg-white rounded-xl border border-palevioletred-200 p-4">
-          <label className="text-xl font-bold">Income</label>
-          <select className="w-full py-2 px-4 text-lg rounded-md">
-            <option value="">Please select</option>
-          </select>
-        </div>
-        <div className="bg-white rounded-xl border border-palevioletred-200 p-4">
-          <label className="text-xl font-bold">Area</label>
-          <select className="w-full py-2 px-4 text-lg rounded-md">
-            <option value="">Please select</option>
-          </select>
-        </div>
-      </div>
-      <button className="bg-mediumslateblue text-white text-2xl font-bold py-4 px-8 rounded-full mt-8">
-        Search
-      </button>
-    </div>
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)}>
+        <FormField
+          control={form.control}
+          name="job"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Job</FormLabel>
+              <FormControl>
+                <Input placeholder="Type a job name" {...field} />
+              </FormControl>
+              <FormDescription>Search for a job title</FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        ></FormField>
+        <FormField
+          control={form.control}
+          name="sector"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Sector</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select a job sector" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  {sectors.map((sector, i) => (
+                    <SelectItem value={sector} key={i}>
+                      {sector}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <FormDescription>Select a job sector</FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        ></FormField>
+        <FormField
+          control={form.control}
+          name="position"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Sector</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select a job sector" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  {positions.map((position, i) => (
+                    <SelectItem value={position} key={i}>
+                      {position}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <FormDescription>Select a job sector</FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        ></FormField>
+        <FormField
+          control={form.control}
+          name="salary"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Salary</FormLabel>
+              <div>
+                {" "}
+                {">"} ¥ {field.value} Million/year
+              </div>
+              <FormControl>
+                <Slider
+                  defaultValue={[1]}
+                  min={1}
+                  max={20}
+                  step={1}
+                  onValueChange={(values) => {
+                    const value = values[0];
+                    field.onChange(value);
+                  }}
+                />
+              </FormControl>
+              <FormDescription>
+                Select the minimum annual income you expect
+              </FormDescription>
+            </FormItem>
+          )}
+        ></FormField>
+        <FormField
+          control={form.control}
+          name="style"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Work Style</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select a work style" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  {workStyles.map((style, i) => (
+                    <SelectItem value={style} key={i}>
+                      {style}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </FormItem>
+          )}
+        ></FormField>
+        <Button type="submit" size="xl">
+          Submit
+        </Button>
+      </form>
+    </Form>
   );
 }
