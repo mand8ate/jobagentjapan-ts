@@ -25,12 +25,15 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
+import { japanRegions } from "@/constants";
+
 const formSchema = z.object({
   job: z.string().optional(),
   sector: z.string().optional(),
   position: z.string().optional(),
   salary: z.number().optional(),
   style: z.string().optional(),
+  area: z.string().optional(),
 });
 
 const sectors = [
@@ -53,6 +56,7 @@ export default function SearchFormContainer() {
       position: "",
       salary: undefined,
       style: "",
+      area: "",
     },
   });
 
@@ -64,6 +68,7 @@ export default function SearchFormContainer() {
       position: values.position?.toLocaleLowerCase().replace(/ /g, "-"),
       salary: values.salary,
       style: values.style?.toLowerCase().replace(/ /g, "-"),
+      area: values.area?.toLocaleLowerCase().replace(/ /g, "-")?.split("-")[0],
     };
 
     console.log(transformedValues);
@@ -85,7 +90,7 @@ export default function SearchFormContainer() {
               <FormMessage />
             </FormItem>
           )}
-        ></FormField>
+        />
         <FormField
           control={form.control}
           name="sector"
@@ -110,7 +115,7 @@ export default function SearchFormContainer() {
               <FormMessage />
             </FormItem>
           )}
-        ></FormField>
+        />
         <FormField
           control={form.control}
           name="position"
@@ -135,7 +140,7 @@ export default function SearchFormContainer() {
               <FormMessage />
             </FormItem>
           )}
-        ></FormField>
+        />
         <FormField
           control={form.control}
           name="salary"
@@ -163,7 +168,7 @@ export default function SearchFormContainer() {
               </FormDescription>
             </FormItem>
           )}
-        ></FormField>
+        />
         <FormField
           control={form.control}
           name="style"
@@ -186,7 +191,30 @@ export default function SearchFormContainer() {
               </Select>
             </FormItem>
           )}
-        ></FormField>
+        />
+        <FormField
+          control={form.control}
+          name="area"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Area/Region</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select your area" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  {japanRegions.map((region, i) => (
+                    <SelectItem value={region} key={i}>
+                      {region}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </FormItem>
+          )}
+        />
         <Button type="submit" size="xl">
           Submit
         </Button>

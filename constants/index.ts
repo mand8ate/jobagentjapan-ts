@@ -77,3 +77,14 @@ export const agents = {
     profileImage: "/image1@2x.jpg",
   },
 };
+
+export const japanRegions = [
+  "Hokkaido",
+  "Tohoku (Sendai)",
+  "Kanto (Tokyo, Chiba)",
+  "Chubu (Nagoya)",
+  "Kansai (Kyoto, Osaka)",
+  "Chugoku (Hiroshima)",
+  "Shikoku (Ehime)",
+  "Kyushu (Fukuoka)",
+];
