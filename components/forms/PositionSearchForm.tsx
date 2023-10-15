@@ -75,14 +75,19 @@ export default function SearchFormContainer() {
   };
 
   return (
+    <div className=" py-20 px-32">
+      <div className="bg-red p-8 rounded-[30px]">
+        <div className="bg-gray-100 p-4 rounded-[15px]">
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col px-0">
+        <div className="flex gap-4 justify-between tracking-wide relative mb-6">
         <FormField
+        className="w-[33%]"
           control={form.control}
           name="job"
           render={({ field }) => (
-            <FormItem>
-              <FormLabel>Job</FormLabel>
+            <FormItem className="w-full">
+              <FormLabel className="tracking-widest text-md text-semibold">Job</FormLabel>
               <FormControl>
                 <Input placeholder="Type a job name" {...field} />
               </FormControl>
@@ -92,15 +97,16 @@ export default function SearchFormContainer() {
           )}
         />
         <FormField
+        className="w-[33%]"
           control={form.control}
           name="sector"
           render={({ field }) => (
-            <FormItem>
-              <FormLabel>Sector</FormLabel>
+            <FormItem className="w-full">
+              <FormLabel className="tracking-widest text-md text-semibold">Sector</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger>
-                    <SelectValue placeholder="Select a job sector" />
+                    <SelectValue placeholder="Select sector" />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
@@ -117,30 +123,33 @@ export default function SearchFormContainer() {
           )}
         />
         <FormField
+        className="w-[33%]"
           control={form.control}
           name="position"
           render={({ field }) => (
-            <FormItem>
-              <FormLabel>Sector</FormLabel>
+            <FormItem className="w-full">
+              <FormLabel className="tracking-widest text-md text-semibold">Position</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger>
-                    <SelectValue placeholder="Select a job sector" />
+                    <SelectValue placeholder="Select position" />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
                   {positions.map((position, i) => (
-                    <SelectItem value={position} key={i}>
+                    <SelectItem value={position} key={i} className="w-full">
                       {position}
                     </SelectItem>
                   ))}
                 </SelectContent>
               </Select>
-              <FormDescription>Select a job sector</FormDescription>
+              <FormDescription>Select your desired position</FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
+        </div>
+        <div className="mb-6">
         <FormField
           control={form.control}
           name="salary"
@@ -169,11 +178,13 @@ export default function SearchFormContainer() {
             </FormItem>
           )}
         />
+        </div>
+        <div className="flex gap-4 justify-between tracking-wide mb-6">
         <FormField
           control={form.control}
           name="style"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="w-full">
               <FormLabel>Work Style</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
@@ -196,7 +207,7 @@ export default function SearchFormContainer() {
           control={form.control}
           name="area"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="w-full">
               <FormLabel>Area/Region</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
@@ -215,10 +226,14 @@ export default function SearchFormContainer() {
             </FormItem>
           )}
         />
+        </div>
         <Button type="submit" size="xl">
           Submit
         </Button>
       </form>
     </Form>
+    </div>
+    </div>
+    </div>
   );
 }
