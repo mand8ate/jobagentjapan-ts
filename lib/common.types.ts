@@ -10,6 +10,7 @@ export interface SectionProps {
   title: string;
   color?: string;
   background?: string;
+  container?: boolean;
   children: ReactNode;
 }
 

@@ -31,9 +31,14 @@ export default function PositionsCard({
       className={`rounded-3xl bg-white shadow-md sm:w-[340px] md:w-[380px] flex flex-col p-8 gap-4 border-2 ${border}`}
     >
       <div
-        className={`rounded-3xl border-2 ${border} relative w-[300px] h-[200px]`}
+        className={`rounded-3xl border-2 ${border} relative w-[250px] h-[140px] md:w-[300px] md:h-[200px]`}
       >
-        <Image alt={`${category} image`} src={imagePath} fill />
+        <Image
+          alt={`${category} image`}
+          src={imagePath}
+          fill
+          className="rounded-3xl"
+        />
       </div>
       <h4 className="py-1.5 md:py-2.5 text-lg font-semibold">{title}</h4>
       <p className="py-1.5 md:py-2.5 text-darkslategray-100 text-lg">
@@ -42,7 +47,7 @@ export default function PositionsCard({
       <p className="py-1.5 md:py-2.5 text-mediumslateblue text-lg font-semibold">
         ¥ {salary} Million/year
       </p>
-      <div className="flex flex-row py-1.5 md:py-2.5 justify-around text-lg text-gray-200">
+      <div className="flex flex-row py-1.5 md:py-2.5 justify-around text-lg text-muted-foreground">
         <div className="flex gap-3 items-center">
           <MapPinIcon className="w-4 h-4" />
           <span className="font-medium">{location}</span>

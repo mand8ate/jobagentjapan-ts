@@ -9,7 +9,7 @@ export const footerLinks = [
     title: "Navigation",
     links: [
       { title: "Home", url: "/" },
-      { title: "Positions", url: "positions" },
+      { title: "Positions", url: "/positions" },
       { title: "Blog", url: "https://lifenippon.com" },
       { title: "Contact", url: "/contact" },
       { title: "About", url: "/about" },
@@ -63,11 +63,11 @@ export const features = [
 export const categories = {
   "Information Technology": {
     imagePath: "/categoryimage@2x.png",
-    border: "violetGradient-border",
+    border: "yellow-500",
   },
   Hospitality: {
     imagePath: "/categoryimage@2x.png",
-    border: "blueGradient-border",
+    border: "primary",
   },
 };
 

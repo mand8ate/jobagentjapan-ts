@@ -55,9 +55,10 @@ export default async function PositionSection() {
     <SectionContainer
       title="Top Positions"
       color="blueGradient-bg"
-      background="bg-gradient-to-b from-crimson-100 to-white"
+      background="bg-gradient-to-b from-crimson-300 to-white"
+      container
     >
-      <div className="flex flex-wrap gap-8 justify-center md:px- px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48 2xl:px-64">
+      <div className="flex flex-wrap gap-8 justify-center px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48 2xl:px-64">
         {positions.map((position) => (
           <PositionCard position={position} key={position.id} />
         ))}

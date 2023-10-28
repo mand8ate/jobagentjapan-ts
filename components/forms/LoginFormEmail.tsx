@@ -1,23 +1,43 @@
 "use client";
-
-import { toast } from "react-toastify";
+import { useState } from "react";
+import { useToast } from "../ui/use-toast";
+import { Button } from "../ui/button";
+import { Mail } from "lucide-react";
 
 export default function LoginFormEmail() {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const { toast } = useToast();
+
   const formActionUrl = `${location.origin}/api/auth/signin`;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
+    try {
+      setIsLoading(true);
+      const response = await fetch(formActionUrl, {
+        method: "POST",
+        body: formData,
+      });
 
-    const response = await fetch(formActionUrl, {
-      method: "POST",
-      body: formData,
-    });
-
-    if (!response.ok) {
-      const errorMessage = await response.json();
-      toast.error(errorMessage.error);
+      if (!response.ok) {
+        const errorMessage = await response.json();
+        toast({
+          variant: "destructive",
+          title: "Email Signin",
+          description: errorMessage.error,
+        });
+      }
+    } catch (e) {
+      toast({
+        variant: "destructive",
+        title: "Email Signin",
+        description: "Oops, something went wrong! try again?",
+      });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -41,12 +61,18 @@ export default function LoginFormEmail() {
           />
         </div>
         <div>
-          <button
+          <Button
+            isLoading={isLoading}
             type="submit"
-            className="w-full bg-palevioletred-100 hover:bg-palevioletred-500 text-white font-medium py-2 px-4 rounded-full transition duration-200 ease-in-out"
+            className="relative w-full bg-palevioletred-100 hover:bg-palevioletred-500 text-white text-md font-medium py-2 px-4 rounded-full transition duration-200 ease-in-out"
           >
+            {isLoading ? null : (
+              <span className="absolute left-6">
+                <Mail className="mr-2" />
+              </span>
+            )}
             Email Signin
-          </button>
+          </Button>
         </div>
       </form>
     </div>

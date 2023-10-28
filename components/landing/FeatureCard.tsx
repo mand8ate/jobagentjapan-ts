@@ -2,7 +2,7 @@ import { FeatureCardProps } from "@/lib/common.types";
 
 export default async function FeatureCard({ feature }: FeatureCardProps) {
   return (
-    <div className="p-6 w-96 mx-8">
+    <div className="p-6 w-96 mx-2 sm:mx-4 md:mx-6 lg:mx-8">
       <div className="flex items-center justify-center mb-4 lg:mb-10">
         <feature.icon className="w-14 h-14 lg:w-20 lg:h-20 text-crimson-300" />
       </div>

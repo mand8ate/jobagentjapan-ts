@@ -4,7 +4,7 @@ import { footerLinks } from "@/constants";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-blueviolet-200 text-white">
+    <footer className="w-full bg-blueviolet-200 text-white py-24 mt-36">
       <div className="container py-10 mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-center md:justify-between md:space-x-8 text-center md:text-left">
           <div className="flex flex-col items-center md:items-start">
@@ -52,13 +52,13 @@ const Footer = () => {
           <div className="space-x-4 mt-4 md:mt-0">
             <Link
               className="cursor-pointer [text-decoration:none] font-medium"
-              href="/legal/privacy-policy"
+              href="/privacy-policy"
             >
               Privacy Policy
             </Link>
             <Link
               className="cursor-pointer [text-decoration:none] font-medium"
-              href="/legal/terms-of-use"
+              href="/terms-of-use"
             >
               Terms of Use
             </Link>

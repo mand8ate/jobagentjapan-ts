@@ -32,7 +32,7 @@ export default async function Header() {
               </Link>
             </div>
             <div className="overflow-hidden flex flex-row items-center justify-start xl:text-2xl text-md md:text-xl">
-              <i>Job Agent Japan</i>
+              <i className="hidden sm:block">Job Agent Japan</i>
             </div>
           </div>
 
@@ -55,7 +55,7 @@ export default async function Header() {
               <SigninDropdown />
               <CustomButton
                 title="Signup"
-                url="auth/signup"
+                url="signup"
                 customClasses="py-2 px-4 text-white text-md blueGradient-bg"
               />
             </div>

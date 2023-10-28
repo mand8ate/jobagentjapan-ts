@@ -4,8 +4,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Footer from "@/components/nav/Footer";
 
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { Toaster } from "@/components/ui/toaster";
+import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,10 +22,10 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <ToastContainer />
+      <body className={(cn("antialiased"), inter.className)}>
+        <Toaster />
         <Header />
-        <div className="pt-[80px] md:pt-[100px]">{children}</div>
+        <div className={cn("pt-[80px] md:pt-[100px]")}>{children}</div>
         <Footer />
       </body>
     </html>

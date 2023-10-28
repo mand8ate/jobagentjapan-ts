@@ -12,7 +12,7 @@ const config: Config = {
       center: true,
       padding: "2rem",
       screens: {
-        "2xl": "1400px",
+        "2xl": "1800px",
       },
     },
     extend: {
@@ -31,9 +31,15 @@ const config: Config = {
           300: "#f93452",
         },
         gray: {
-          100: "#8b8b8b",
-          200: "#8a8a8a",
-          300: "rgba(255, 255, 255, 0.75)",
+          100: "rgba(238, 238, 238, 0.95)", // very light gray with slight transparency
+          200: "rgba(223, 223, 223, 0.1)", // very light gray with more transparency
+          300: "#e0e0e0", // solid light gray
+          400: "#B6B6B6", // solid gray
+          500: "#999999", // solid medium gray
+          600: "rgba(153, 153, 153, 0.8)", // medium gray with transparency
+          700: "#666666", // solid dark gray
+          800: "rgba(51, 51, 51, 0.8)", // dark gray with transparency
+          900: "#333333",
         },
         palevioletred: {
           100: "#c06474",
@@ -47,6 +53,7 @@ const config: Config = {
           200: "#c2c2c2",
           300: "#b9b9b9",
           400: "#b6b6b6",
+          500: "rgba(255, 255, 255, 0.8)",
         },
         red: "#ff0000",
         black: "#000",
@@ -107,11 +114,15 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        contactForm: "url('/contact-form-bg.jpg')",
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      opacity: {
+        "90": "0.9",
       },
       keyframes: {
         "accordion-down": {
@@ -128,6 +139,8 @@ const config: Config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
+    filter: {},
+    backgropFilter: {},
   },
   plugins: [require("tailwindcss-animate")],
 };

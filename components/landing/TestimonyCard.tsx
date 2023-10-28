@@ -1,29 +1,37 @@
-export default async function TestimonyCard(){
-    return (
-        <div className="self-stretch [background:linear-gradient(181.47deg,_#fff,_rgba(195,_195,_195,_0)_90.63%)] h-[1000px] overflow-hidden shrink-0 flex flex-col py-[100px] px-[50px] box-border items-center justify-center gap-[50px] text-center text-21xl text-white font-inter">
-          <div className="rounded-6xl [background:linear-gradient(91.62deg,_#8d50ff,_#306cfe)] shadow-[4px_5px_8px_rgba(0,_0,_0,_0.25)] w-[700px] overflow-hidden flex flex-row py-[15px] px-16 box-border items-center justify-center md:pl-[45px] md:pr-[45px] md:box-border sm:pl-[25px] sm:pr-[25px] sm:box-border">
-            <b className="relative leading-[35px] uppercase">Success Stories</b>
-          </div>
-          <div className="self-stretch flex-1 overflow-hidden flex flex-row flex-wrap py-[25px] px-[50px] items-center justify-center text-left text-base text-dimgray">
-            <div className="self-stretch flex-1 overflow-hidden flex flex-col py-2.5 px-[50px] items-center justify-start">
-              <div className="self-stretch flex-1 overflow-hidden flex flex-row p-2.5 items-center justify-start gap-[40px]">
-                <TestimonyCard
-                  dimensionLabel="/psquote.svg"
-                  imageDimensionLabel="/image@2x.png"
-                />
-                <TestimonyCard
-                  dimensionLabel="/psquote1.svg"
-                  imageDimensionLabel="/image1@2x.png"
-                  propBorder="3px solid #fc4459"
-                />
-                <TestimonyCard
-                  dimensionLabel="/psquote2.svg"
-                  imageDimensionLabel="/image2@2x.png"
-                  propBorder="3px solid #904fff"
-                />
-              </div>
-            </div>
-          </div>
+import Image from "next/image";
+import { Quote } from "lucide-react";
+
+export default function TestimonyCard() {
+  const profileImage = "/image1@2x.jpg";
+
+  return (
+    <div className="flex flex-col rounded-3xl h-fill p-8 shadow-md gap-8">
+      <div className="flex justify-start">
+        <Quote color="mediumturquoise" fill="mediumturquoise" size={32} />
+      </div>
+      <div className="m-auto border-4 border-mediumturquoise rounded-full h-[110px] w-[110px] p-1">
+        <div className="flex justify-center rounded-full h-full w-full relative">
+          <Image
+            src={profileImage}
+            alt="testimony client"
+            layout="fill"
+            objectFit="cover"
+            className="rounded-full"
+          />
         </div>
-      );
+      </div>
+      <div>
+        <p className="text-2xl font-semibold">
+          "Best job platform i have ever used. Super easy and found a job
+          immediately. Now I am the CEO"
+        </p>
+      </div>
+      <div className="flex flex-col items-center gap-4">
+        <h1 className="text-2xl font-bold">John Doe</h1>
+        <h1 className="text-2xl font-bold">
+          CEO, <span className="text-gold">Company</span>
+        </h1>
+      </div>
+    </div>
+  );
 }
