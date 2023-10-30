@@ -75,6 +75,9 @@ const config: Config = {
         rosybrown: "#c57f85",
         pink: "#e1b4b8",
         indianred: "#c15c6d",
+        headerblue: "#326CFE",
+        headerred: "#FA3E5D",
+        headergreen: "#2ECC71",
         // shadcn colors
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

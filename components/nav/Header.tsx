@@ -38,7 +38,7 @@ export default async function Header() {
 
           {headerLinks.map((link) => (
             <Link
-              className="cursor-pointer [text-decoration:none] relative uppercase text-[inherit] hidden lg:block"
+              className="cursor-pointer [text-decoration:none] relative uppercase text-[inherit] hidden lg:block font-semibold tracking-widest"
               href={link.url}
               key={link.title}
             >

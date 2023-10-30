@@ -45,3 +45,10 @@ export interface PositionCardProps {
     agent: string;
   };
 }
+
+export interface HeroPageProps {
+  bgImg: string;
+  bgColor: string;
+  title: string;
+  subtitle: string;
+}
