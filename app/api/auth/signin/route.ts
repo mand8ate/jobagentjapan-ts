@@ -1,21 +1,25 @@
-import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
+import { createClient } from "@/lib/supabase/server";
 import { cookies } from "next/headers";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
-import type { Database } from "@/lib/database.types";
-
-export const dynamic = "force-dynamic";
-
-export async function GET(request: NextRequest) {
+export async function GET(request: Request) {
   const requestUrl = new URL(request.url);
   const code = requestUrl.searchParams.get("code");
 
   if (code) {
-    const supabase = createRouteHandlerClient<Database>({ cookies });
-    await supabase.auth.exchangeCodeForSession(code);
+    const cookieStore = cookies();
+    const supabase = createClient(cookieStore);
+
+    const { error } = await supabase.auth.exchangeCodeForSession(code);
+    if (!error) {
+      return NextResponse.redirect(requestUrl.origin);
+    }
   }
 
-  return NextResponse.redirect(requestUrl.origin);
+  // return the user to an error page with instructions
+  return NextResponse.redirect(
+    new URL("/auth-error?error=auth_error", request.url)
+  );
 }
 
 export async function POST(request: Request) {
@@ -24,6 +28,8 @@ export async function POST(request: Request) {
     const formData = await request.formData();
     const email = String(formData.get("email"));
     const password = String(formData.get("password"));
+    const cookieStore = cookies();
+    const supabase = createClient(cookieStore);
 
     if (!email || !password) {
       return NextResponse.json(
@@ -33,8 +39,6 @@ export async function POST(request: Request) {
         }
       );
     }
-
-    const supabase = createRouteHandlerClient<Database>({ cookies });
 
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
@@ -48,11 +52,10 @@ export async function POST(request: Request) {
       );
     }
 
-    return NextResponse.redirect(requestUrl.origin, {
-      status: 301,
-    });
+    // return NextResponse.redirect(requestUrl.origin, {
+    //   status: 301,
+    // });
   } catch (e) {
-    console.log(e);
     return NextResponse.json(
       { error: "Something went wrong" },
       { status: 500 }

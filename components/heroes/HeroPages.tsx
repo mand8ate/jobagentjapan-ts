@@ -8,7 +8,6 @@ export default async function HeroPages({
   subtitle,
 }: HeroPageProps) {
   const backgroundImage = bgImg ? bgImg : "";
-  console.log(backgroundImage);
 
   return (
     <header

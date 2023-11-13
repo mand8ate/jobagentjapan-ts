@@ -9,13 +9,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-center md:justify-between md:space-x-8 text-center md:text-left">
           <div className="flex flex-col items-center md:items-start">
             <div className="w-10 h-10 relative">
-              <Image
-                className="rounded-full"
-                alt="jaj logo"
-                src="/group1@2x.png"
-                width={50}
-                height={50}
-              />
+              <Image alt="jaj logo" src="/icon.svg" width={50} height={50} />
             </div>
             <div className="mt-2">
               <h1 className="text-xl font-bold md:text-2xl">Job Agent Japan</h1>

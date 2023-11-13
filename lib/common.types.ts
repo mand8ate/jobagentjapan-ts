@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
 
 export interface CustomButtonProps {
-  customClasses: string;
-  title: string;
-  url: string;
+  customClasses?: string;
+  title?: string;
+  url?: string;
 }
 
 export interface SectionProps {

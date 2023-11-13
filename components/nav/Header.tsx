@@ -1,16 +1,16 @@
+import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
 import Image from "next/image";
 import { cookies } from "next/headers";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 
 import { headerLinks } from "@/constants";
 import CustomButton from "@/components/buttons/CustomButton";
-import SigninDropdown from "../auth/SigninDropdown";
-import AuthButtonClient from "../buttons/SigninButtonClient";
-import ProfileDropdown from "../profile/ProfileDropdown";
+import DropdownMenu from "@/components/nav/DropdownMenu";
+import ProfileDropdown from "./ProfileDropdown";
 
 export default async function Header() {
-  const supabase = createServerComponentClient({ cookies });
+  const cookieStore = cookies();
+  const supabase = createClient(cookieStore);
   const {
     data: { session },
   } = await supabase.auth.getSession();
@@ -19,22 +19,20 @@ export default async function Header() {
     <nav className="navbar">
       <div className="flex-1 flex flex-row items-center justify-between">
         <div className="flex items-center gap-10 mr-2">
-          <div className="flex ml-2 items-center justify-center text-crimson-300">
-            <div className="flex flex-col items-center justify-center mx-2">
-              <Link href="/">
-                <Image
-                  className="cursor-pointer object-contain"
-                  alt=""
-                  src="/group1@2x.png"
-                  width={40}
-                  height={40}
-                />
-              </Link>
+          <Link href="/">
+            <div className="flex items-center ml-4 gap-2">
+              <Image
+                className="object-contain"
+                alt=""
+                src="/icon.svg"
+                width={40}
+                height={40}
+              />
+              <div className="xl:text-2xl text-md md:text-xl text-crimson-300">
+                <i className="hidden sm:block">Job Agent Japan</i>
+              </div>
             </div>
-            <div className="overflow-hidden flex flex-row items-center justify-start xl:text-2xl text-md md:text-xl">
-              <i className="hidden sm:block">Job Agent Japan</i>
-            </div>
-          </div>
+          </Link>
 
           {headerLinks.map((link) => (
             <Link
@@ -49,10 +47,10 @@ export default async function Header() {
 
         <div className="flex items-center justify-center gap-5 mr-2 md:mr-4">
           {session ? (
-            <ProfileDropdown />
+            <ProfileDropdown user={session.user.user_metadata} />
           ) : (
             <div className=" flex gap-4">
-              <SigninDropdown />
+              <DropdownMenu />
               <CustomButton
                 title="Signup"
                 url="signup"

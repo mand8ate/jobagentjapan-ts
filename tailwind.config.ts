@@ -78,6 +78,7 @@ const config: Config = {
         headerblue: "#326CFE",
         headerred: "#FA3E5D",
         headergreen: "#2ECC71",
+        headergray: "#C2C2C2",
         // shadcn colors
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

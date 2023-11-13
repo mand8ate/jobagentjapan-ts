@@ -8,7 +8,7 @@ const CustomButton = ({ customClasses, title, url }: CustomButtonProps) => {
       <button
         className={`rounded-[30px] ${customClasses} text-decoration:none flex items-center justify-center cursor-pointer`}
       >
-        {title}
+        {title || "button"}
       </button>
     </Link>
   );

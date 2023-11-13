@@ -3,13 +3,12 @@ import { useState } from "react";
 import { useToast } from "../ui/use-toast";
 import { Button } from "../ui/button";
 import { Mail } from "lucide-react";
+import { getURL } from "@/lib/getURL";
 
 export default function LoginFormEmail() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const { toast } = useToast();
-
-  const formActionUrl = `${location.origin}/api/auth/signin`;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -17,7 +16,7 @@ export default function LoginFormEmail() {
     const formData = new FormData(e.currentTarget);
     try {
       setIsLoading(true);
-      const response = await fetch(formActionUrl, {
+      const response = await fetch(`${getURL()}/api/auth/signin`, {
         method: "POST",
         body: formData,
       });
@@ -64,10 +63,10 @@ export default function LoginFormEmail() {
           <Button
             isLoading={isLoading}
             type="submit"
-            className="relative w-full bg-palevioletred-100 hover:bg-palevioletred-500 text-white text-md font-medium py-2 px-4 rounded-full transition duration-200 ease-in-out"
+            className="w-full bg-palevioletred-100 hover:bg-palevioletred-500 text-white text-md font-medium py-2 px-4 rounded-full transition duration-200 ease-in-out"
           >
             {isLoading ? null : (
-              <span className="absolute left-6">
+              <span>
                 <Mail className="mr-2" />
               </span>
             )}
