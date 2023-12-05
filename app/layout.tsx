@@ -6,6 +6,7 @@ import Footer from "@/components/nav/Footer";
 
 import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/utils";
+import Providers from "@/components/Providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,9 +25,15 @@ export default async function RootLayout({
     <html lang="en">
       <body className={(cn("antialiased"), inter.className)}>
         <Toaster />
-        <Header />
-        <div className={cn("pt-[80px] md:pt-[100px]")}>{children}</div>
-        <Footer />
+        <Providers>
+          <div className="flex flex-col min-h-screen">
+            <Header />
+            <main className={cn("flex-grow pt-[80px] md:pt-[100px]")}>
+              {children}
+            </main>
+            <Footer />
+          </div>
+        </Providers>
       </body>
     </html>
   );

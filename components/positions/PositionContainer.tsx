@@ -57,7 +57,7 @@ export default async function PositionContainer() {
           <PositionsCard position={position} key={position.id} />
         ))}
       </div>
-      <hr className=" my-6 border-t border-gray-300 w-3/4" />
+      <hr className="my-6 border-t border-gray-300 w-3/4" />
       <LoadButton title="Load more"></LoadButton>
     </div>
   );

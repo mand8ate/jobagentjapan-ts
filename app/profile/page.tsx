@@ -1,4 +1,4 @@
-import ProfileCardContainer from "@/components/profile/ProfileCardContainer";
+import ProfileCardContainer from "@/components/profile/ProfileContainer";
 
 export default async function Profile() {
   return (

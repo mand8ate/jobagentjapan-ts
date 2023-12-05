@@ -5,7 +5,7 @@ import {
 } from "@/components/ui/popover";
 import { Separator } from "@/components/ui/separator";
 import LoginFormEmail from "@/components/forms/LoginFormEmail";
-import SigninButtonClient from "../buttons/SigninButton";
+import SigninButton from "../buttons/SigninButton";
 
 import { ChevronDown } from "lucide-react";
 
@@ -27,7 +27,7 @@ export default async function DropdownMenuTest() {
       <PopoverContent align="end" className={cn("mt-2 pt-6")}>
         <LoginFormEmail />
         <Separator className="my-2" />
-        <SigninButtonClient />
+        <SigninButton />
       </PopoverContent>
     </Popover>
   );

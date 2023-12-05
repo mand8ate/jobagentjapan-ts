@@ -8,7 +8,7 @@ export default async function Positions() {
       <HeroPages
         bgImg="/hero4@3x.png"
         bgColor="bg-headerblue"
-        title="Open Positions"
+        title="Positions"
         subtitle="Find the perfect fit for your lifestyle"
       />
       <PositionSearchForm />

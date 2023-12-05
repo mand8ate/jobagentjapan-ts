@@ -6,13 +6,6 @@ import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
 
 export default async function SignoutButton() {
-  const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
-
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
   const signOut = async () => {
     "use server";
 

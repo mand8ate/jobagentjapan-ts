@@ -1,43 +1,30 @@
 "use client";
+
 import { useState } from "react";
-import { useToast } from "../ui/use-toast";
 import { Button } from "../ui/button";
 import { Mail } from "lucide-react";
-import { getURL } from "@/lib/getURL";
+import { useRouter } from "next/navigation";
+import { singInWithEmailPayload } from "@/lib/validators/auth";
+import { signInWithEmail } from "../auth/actions";
+import Link from "next/link";
 
 export default function LoginFormEmail() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
-
-  const { toast } = useToast();
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsLoading(true);
 
-    const formData = new FormData(e.currentTarget);
-    try {
-      setIsLoading(true);
-      const response = await fetch(`${getURL()}/api/auth/signin`, {
-        method: "POST",
-        body: formData,
-      });
+    const payload: singInWithEmailPayload = {
+      email,
+      password,
+    };
 
-      if (!response.ok) {
-        const errorMessage = await response.json();
-        toast({
-          variant: "destructive",
-          title: "Email Signin",
-          description: errorMessage.error,
-        });
-      }
-    } catch (e) {
-      toast({
-        variant: "destructive",
-        title: "Email Signin",
-        description: "Oops, something went wrong! try again?",
-      });
-    } finally {
-      setIsLoading(false);
-    }
+    await signInWithEmail(payload, setIsLoading, router);
+    setPassword("");
   };
 
   return (
@@ -47,6 +34,8 @@ export default function LoginFormEmail() {
           <input
             type="email"
             name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="appearance-none rounded-full py-2 px-4 text-gray-700 bg-silver-100 w-full focus:outline-none focus:ring-1 focus:ring-palevioletred-200 focus:border-transparent"
             placeholder="Email Address"
           />
@@ -55,6 +44,8 @@ export default function LoginFormEmail() {
           <input
             type="password"
             name="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             className="appearance-none rounded-full py-2 px-4 text-gray-700 bg-silver-100 w-full focus:outline-none focus:ring-1 focus:ring-palevioletred-200 focus:border-transparent"
             placeholder="Password"
           />
@@ -72,6 +63,12 @@ export default function LoginFormEmail() {
             )}
             Email Signin
           </Button>
+          <Link
+            href="reset-password"
+            className="block text-right underline text-sm mt-1"
+          >
+            Forgot Password?
+          </Link>
         </div>
       </form>
     </div>

@@ -27,7 +27,7 @@ export default function SigninButtonClient() {
             <Linkedin className="mr-2" />
           </span>
         )}
-        Signin
+        Signup
       </Button>
       <Separator className="my-2" />
       <Button
@@ -42,7 +42,7 @@ export default function SigninButtonClient() {
             <Github className="mr-2" />
           </span>
         )}
-        Signin
+        Signup
       </Button>
     </>
   );

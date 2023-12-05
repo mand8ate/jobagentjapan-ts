@@ -1,7 +1,7 @@
 import DeveloperContainer from "@/components/about/DeveloperSection";
 import CompanyContainer from "@/components/about/CompanySection";
 import HeroPages from "@/components/heroes/HeroPages";
-import { AboutUsSection } from "@/components/about/AboutUsSection";
+import AboutUsSection from "@/components/about/AboutUsSection";
 
 export default async function About() {
   return (

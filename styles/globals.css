@@ -12,7 +12,7 @@
   }
 
   .navbar {
-    @apply fixed z-10 w-full bg-aqua [backdrop-filter:blur(10px)] flex flex-row items-center h-[80px] md:h-[100px];
+    @apply fixed z-10 w-full bg-aqua [backdrop-filter:blur(10px)] flex flex-row items-center h-[80px] md:h-[100px] overflow-hidden justify-between;
   }
 
   .violetGradient-bg {
@@ -137,6 +137,9 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
+    --success: 120 84.2% 40%;
+    --success-foreground: 0 0% 98%;
+
     --border: 0 0% 89.8%;
     --input: 0 0% 89.8%;
     --ring: 352 97.8% 70.8%;
@@ -173,6 +176,9 @@
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
+
+    --success: 120 62.8% 30.5%;
+    --success-foreground: 0 0% 98%;
 
     --border: 0 0% 14.9%;
     --input: 0 0% 14.9%;

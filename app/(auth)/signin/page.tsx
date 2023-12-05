@@ -1,5 +1,5 @@
 import HeroPages from "@/components/heroes/HeroPages";
-import Signup from "@/components/forms/SignupForm";
+import Signin from "@/components/forms/SigninForm";
 
 import Image from "next/image";
 import { createClient } from "@/lib/supabase/server";
@@ -20,16 +20,16 @@ export default async function page() {
   return (
     <>
       <HeroPages
-        bgImg="/signup_hero.jpg"
+        bgImg="/signin_hero.jpg"
         bgColor="bg-headergray"
-        title="Signup"
-        subtitle="Become a free member"
+        title="Signin"
+        subtitle="Welcome back"
       />
       <div className="container flex flex-row justify-center items-center my-32 gap-10">
         <div className="relative w-full h-[600px] xl:h-[1000px] rounded-xl hidden md:block border-palevioletred-200 border-2">
           <Image
-            src="/signup_img.jpg"
-            alt="signup image"
+            src="/signin_img.jpg"
+            alt="signin image"
             fill
             priority
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 50vw"
@@ -37,7 +37,7 @@ export default async function page() {
           />
         </div>
         <div className="flex justify-center items-center w-full h-[600px] xl:h-[1000px] rounded-xl border-blueviolet-200 border-2 bg-gray-300">
-          <Signup />
+          <Signin />
         </div>
       </div>
     </>

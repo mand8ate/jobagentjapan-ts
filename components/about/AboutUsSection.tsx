@@ -1,4 +1,4 @@
-export async function AboutUsSection() {
+export default function AboutUsSection() {
   return (
     <div className="container py-16 px-6 sm:px-12 md:px-24 lg:px-32">
       <div className="rounded-xl bg-white shadow-lg flex flex-col sm:flex-row p-6 items-center gap-6 border-2 border-indianred md:gap-8 sm:p-8 md:p-12">
