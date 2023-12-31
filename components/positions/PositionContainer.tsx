@@ -5,7 +5,9 @@ import PositionsCard from "./PositionCard";
 export default async function PositionContainer({
   positions,
   limit,
+  isNext,
 }: PositionParentProps) {
+  isNext = isNext || false;
   return (
     <div className="flex flex-col items-center">
       <div className="container flex flex-wrap gap-4 justify-center">
@@ -15,7 +17,7 @@ export default async function PositionContainer({
       </div>
       <hr className="my-6 border-t border-gray-300 w-3/4" />
       {positions ? (
-        <LoadButton pageNumber={(limit || 5) / 5} isNext={true}>
+        <LoadButton pageNumber={(limit || 5) / 5} isNext={isNext}>
           Load more
         </LoadButton>
       ) : (

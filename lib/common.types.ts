@@ -45,8 +45,9 @@ export interface PositionProps {
 }
 
 export interface PositionParentProps {
-  positions: PositionProps[] | null;
+  positions?: PositionProps[] | null;
   limit?: number;
+  isNext?: boolean;
 }
 
 export interface HeroPageProps {

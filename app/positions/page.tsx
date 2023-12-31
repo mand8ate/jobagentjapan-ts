@@ -26,13 +26,12 @@ export default async function Positions({ searchParams }: PageProps) {
       .select("id, title, category, company, salary, location, style, agent")
       .limit(limit);
 
-    positions = result;
-    isNext = (limit || 5) > positions?.length;
+    positions = result || [];
+    isNext = (limit || 5) > positions.length;
   };
 
   await loadPositions();
 
-  console.log(isNext);
   return (
     <div className="bg-white flex flex-col min-h-screen">
       <HeroPages
