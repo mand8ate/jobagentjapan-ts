@@ -18,8 +18,10 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
+  authModal,
 }: {
   children: React.ReactNode;
+  authModal: React.ReactNode;
 }) {
   return (
     <html lang="en">
@@ -28,6 +30,7 @@ export default async function RootLayout({
         <Providers>
           <div className="flex flex-col min-h-screen">
             <Header />
+            {authModal}
             <main className={cn("flex-grow pt-[80px] md:pt-[100px]")}>
               {children}
             </main>

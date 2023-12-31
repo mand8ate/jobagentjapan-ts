@@ -4,10 +4,11 @@ import Image from "next/image";
 import { cookies } from "next/headers";
 
 import { headerLinks } from "@/constants";
-import CustomButton from "@/components/buttons/CustomButton";
 import DropdownMenu from "@/components/nav/DropdownMenu";
 import ProfileDropdown from "./ProfileDropdown";
 import HamburgerMenu from "./HamburgerMenu";
+import { Button, buttonVariants } from "../ui/button";
+import { cn } from "@/lib/utils";
 
 export default async function Header() {
   const cookieStore = cookies();
@@ -47,15 +48,19 @@ export default async function Header() {
 
       <div className="flex items-center justify-center gap-5 mr-2 md:mr-4">
         {session ? (
-          <ProfileDropdown user={session.user.user_metadata} />
+          <ProfileDropdown user={session.user} />
         ) : (
           <div className=" flex gap-4">
             <DropdownMenu />
-            <CustomButton
-              title="Signup"
-              url="signup"
-              customClasses="py-2 px-4 text-white text-md blueGradient-bg"
-            />
+            <Link
+              className={cn(
+                buttonVariants({}),
+                "rounded-[30px] px-6 py-2 bg-blueviolet-100 text-white text-md"
+              )}
+              href="/signup"
+            >
+              Signup
+            </Link>
           </div>
         )}
 

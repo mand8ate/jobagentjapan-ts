@@ -13,13 +13,15 @@ import { AppWindow, Network, Settings, User } from "lucide-react";
 import Link from "next/link";
 
 export default async function ProfileDropdown({ user }: UserMetadata) {
+  const { user_metadata: metadata } = user;
+
   return (
     <Popover>
       <PopoverTrigger asChild>
         <Avatar className="cursor-pointer">
-          {user.avatar_url || user.picture ? (
+          {metadata.avatar_url || metadata.picture ? (
             <AvatarImage
-              src={user.avatar_url || user.picture}
+              src={metadata.avatar_url || metadata.picture}
               className="w-[40px] h-[40px]"
             ></AvatarImage>
           ) : (
@@ -41,9 +43,9 @@ export default async function ProfileDropdown({ user }: UserMetadata) {
       >
         <div className="flex flex-col justify-center items-center gap-4 w-full">
           <div className="flex flex-col items-center gap-2">
-            {user.avatar_url || user.picture ? (
+            {metadata.avatar_url || metadata.picture ? (
               <Image
-                src={user.avatar_url || user.picture}
+                src={metadata.avatar_url || metadata.picture}
                 width={60}
                 height={60}
                 alt="user avatar"
@@ -58,8 +60,8 @@ export default async function ProfileDropdown({ user }: UserMetadata) {
                 className="rounded-full"
               />
             )}
-            <p>{user.name}</p>
-            <Badge>{user.email || ""}</Badge>
+            <p>{metadata.name || metadata.user_name}</p>
+            <Badge>{user.email || "Hello"}</Badge>
           </div>
           <hr className="my-2 border-t border-gray-300 w-full" />
 

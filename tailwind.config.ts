@@ -85,6 +85,8 @@ const config: Config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        backgroundAdmin: "hsl(var(--background-admin))",
+        foregroundAdmin: "hsl(var(--foreground-admin))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -92,6 +94,14 @@ const config: Config = {
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
+        },
+        primaryAdmin: {
+          DEFAULT: "hsl(var(--primary-admin))",
+          foreground: "hsl(var(--primary-admin-foreground))",
+        },
+        secondaryAdmin: {
+          DEFAULT: "hsl(var(--secondary-admin))",
+          foreground: "hsl(var(--secondary-admin-foreground))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",

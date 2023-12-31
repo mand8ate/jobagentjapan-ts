@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Quote } from "lucide-react";
 
 export default function TestimonyCard() {
-  const profileImage = "/image1@2x.jpg";
+  const profileImage = "/agents/agent-default.jpg";
 
   return (
     <div className="flex flex-col rounded-3xl h-fill p-8 shadow-md gap-8">

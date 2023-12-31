@@ -33,17 +33,20 @@ export enum WorkStyle {
   HYBRID = "Hybrid",
 }
 
-export interface PositionCardProps {
-  position: {
-    id: number;
-    title: string;
-    category: string;
-    company: string;
-    salary: number;
-    location: string;
-    style: WorkStyle;
-    agent: string;
-  };
+export interface PositionProps {
+  id: string;
+  title: string;
+  category: string;
+  company: string;
+  salary: number;
+  location: string;
+  style: string;
+  agent: string;
+}
+
+export interface PositionParentProps {
+  positions: PositionProps[] | null;
+  limit?: number;
 }
 
 export interface HeroPageProps {

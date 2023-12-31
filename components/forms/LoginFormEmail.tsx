@@ -12,6 +12,7 @@ export default function LoginFormEmail() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const dropdown = true;
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -23,7 +24,7 @@ export default function LoginFormEmail() {
       password,
     };
 
-    await signInWithEmail(payload, setIsLoading, router);
+    await signInWithEmail(payload, setIsLoading, router, dropdown);
     setPassword("");
   };
 

@@ -49,7 +49,8 @@ export const signUpWithEmail = async (
 export const signInWithEmail = async (
   payload: singInWithEmailPayload,
   setIsLoading: Dispatch<SetStateAction<boolean>>,
-  router: any
+  router: any,
+  dropdown?: boolean
 ) => {
   const supabase = createClient();
   try {
@@ -61,7 +62,7 @@ export const signInWithEmail = async (
       });
     }
 
-    const { data, error } = await supabase.auth.signInWithPassword(payload);
+    const { error } = await supabase.auth.signInWithPassword(payload);
     if (error) {
       return toast({
         variant: "destructive",
@@ -76,7 +77,11 @@ export const signInWithEmail = async (
       description: "Welcome back!",
     });
 
-    router.refresh();
+    if (dropdown) {
+      router.refresh();
+    } else {
+      window.location.replace("/");
+    }
   } catch (e) {
     toast({
       variant: "destructive",
@@ -94,7 +99,7 @@ export const signInWithGithub = async (
   const supabase = createClient();
   try {
     setIsLoading(true);
-    const { data, error } = await supabase.auth.signInWithOAuth({
+    const { error } = await supabase.auth.signInWithOAuth({
       provider: "github",
       options: {
         redirectTo: `${getURL()}/api/auth/signin`,

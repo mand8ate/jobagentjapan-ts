@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { X } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 export default function CloseModal() {
   const router = useRouter();
@@ -14,7 +14,7 @@ export default function CloseModal() {
       onClick={() => router.back()}
       className="h-6 w-6 p-0 rounded-md"
     >
-      <X className="h-4 w-4" />
+      <X className="h-6 w-6" />
     </Button>
   );
 }

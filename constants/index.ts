@@ -60,23 +60,44 @@ export const features = [
   },
 ];
 
-export const categories = {
-  "Information Technology": {
-    imagePath: "/categoryimage@2x.png",
-    border: "yellow-500",
+export const categories = [
+  {
+    category: "Information Technology",
+    imagePath: "/categories/category-it.png",
+    border: "#f93452",
   },
-  Hospitality: {
-    imagePath: "/categoryimage@2x.png",
-    border: "primary",
+  {
+    category: "Hospitality",
+    imagePath: "/categories/category-it.png",
+    border: "#4d63fe",
   },
-};
+  {
+    category: "Restaurant",
+    imagePath: "/categories/category-it.png",
+    border: "#326CFE",
+  },
+  {
+    category: "Banking",
+    imagePath: "/categories/category-it.png",
+    border: "#f8c202",
+  },
+  {
+    category: "Mechanical Engineering",
+    imagePath: "/categories/category-it.png",
+    border: "#2ECC71",
+  },
+];
 
-export const agents = {
-  Malte: {
+export const agents = [
+  {
     name: "Malte",
-    profileImage: "/image1@2x.jpg",
+    profileImage: "/agents/agent-malte.png",
   },
-};
+  {
+    name: "Mark",
+    profileImage: "/agents/agent-mark.jpg",
+  },
+];
 
 export const japanRegions = [
   "Hokkaido",
